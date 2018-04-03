@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Students Administration - Details</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+    <h1>Details</h1>
+    <p th:text="'ID: ' + ${student.id}"/>
+    <p th:text="'First Name: ' + ${student.name}"/>
+    <p th:text="'LastName: ' + ${student.lastName}"/>
+    <p th:text="'Enrollment Date: ' + ${student.EnrollmentDate}"/>
+    <p th:text="'CPR: ' + ${student.cpr}"/>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Enroll</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body >
+
+<nav>
+    <div class="container">
+        <a href="/" id="logo">KEA</a>
+        <a href="/">Students </a>
+        <a href="/courses">Courses</a>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 th:text="'Enrollment for ' + ${course.title} ">  </h1>
+    <p>The following students can get enrolled in the course</p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>ECTS</th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="course : ${courses}">
+            <td th:text="${course.id}"></td>
+            <td th:text="${course.title}"></td>
+            <td th:text="${course.startDate}"></td>
+            <td th:text="${course.etcs}"></td>
+            <td>
+                <a th:href="'/enrollStud/' + ${student.id} + '/' + ${course.id}" class="btn btn-create">Enroll</a>
+            </td>
+        </tr>
+
+        </tbody>
+
+        <a th:href="'/details?id=' + ${student.id}" class="btn btn-create">Go back to student</a>
+
+
+    </table>
+
+
+</div>
+
+</body>
+</html>

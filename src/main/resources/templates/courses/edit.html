@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+<div class="container">
+    <h1>Edit course id: <span th:text="${course.id}"></span></h1>
+    <form method="post" action="/courses/edit">
+        <input type="text" name="id" id="id" style="display: none;" th:value="${course.id}"/>
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" th:value="${course.title}"/>
+        <label for="startDate">Start date:</label>
+        <input type="date" name="startDate" id="startDate" th:value="${course.startDate}"/>
+        <label for="etcs">ECTS:</label>
+        <input type="text" name="etcs" id="etcs" th:value="${course.etcs}"/>
+        <button type="submit" class="btn btn-create">Submit</button>
+    </form>
+
+</div>
+
+</body>
+</html>

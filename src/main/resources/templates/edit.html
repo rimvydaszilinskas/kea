@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Students Administration - Edit Student</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+    <h1>Edit user id: <span th:text="${student.id}"></span></h1>
+    <form method="post" action="/edit">
+        <input type="text" name="id" id="id" style="display: none;" th:value="${student.id}"/>
+        <label for="fname">Name:</label>
+        <input type="text" name="name" id="fname" th:value="${student.name}"/>
+        <label for="lname">Last Name:</label>
+        <input type="text" name="lastName" id="lname" th:value="${student.lastName}"/>
+        <label for="enrollment">Enrollment date:</label>
+        <input type="date" name="EnrollmentDate" id="enrollment" th:value="${student.EnrollmentDate}"/>
+        <label for="cpr">CPR:</label>
+        <input type="text" name="cpr" id="cpr" th:value="${student.cpr}"/>
+        <button type="submit" class="btn btn-create">Submit</button>
+    </form>
+
+</div>
+
+</body>
+</html>

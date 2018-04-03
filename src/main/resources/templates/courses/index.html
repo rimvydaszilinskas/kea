@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Courses at KEA</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+<nav>
+    <div class="container">
+        <a href="/" id="logo">KEA</a>
+        <a href="/">Students </a>
+        <a href="/courses">Courses</a>
+    </div>
+</nav>
+
+<div class="container">
+<h1>Courses</h1>
+<p>Courses at KEA</p>
+
+<a href="/courses/create" class="btn btn-create">Create New Course</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Start Date</th>
+        <th>ETCS</th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr th:each="course : ${course}">
+        <td th:text="${course.id}"></td>
+        <td th:text="${course.title}"></td>
+        <td th:text="${course.startDate}"></td>
+        <td th:text="${course.etcs}"></td>
+        <td><a th:href="@{'/courses/details?id=' + ${course.id}}" class="btn btn-details">Details</a> <a th:href="@{'/courses/edit?id=' + ${course.id}}" class="btn btn-ed">Edit</a> <a th:href="@{'/courses/delete?id=' + ${course.id}}" class="btn btn-del">Delete</a>   </td>
+    </tr>
+
+    </tbody>
+
+
+
+</table>
+
+
+</div>
+
+
+</body>
+</html>

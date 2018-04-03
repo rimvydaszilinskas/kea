@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Details</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+<nav>
+    <div class="container">
+        <a href="/" id="logo">KEA</a>
+        <a href="/">Students </a>
+        <a href="/courses">Courses</a>
+    </div>
+</nav>
+<div class="container">
+    <h1 th:text="'Details for ' + ${course.title}"></h1>
+    <p th:text="'ID: ' + ${course.id}"></p>
+    <p th:text="'ECTS: ' + ${course.etcs}"></p>
+    <p th:text="'Start date: ' + ${course.startDate}"></p>
+    <h2>Students enrrolled:</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Enrollment date</th>
+            <th>CPR</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="student: ${student}">
+                <td th:text="${student.id}"></td>
+                <td th:text="${student.name} + ' ' + ${student.lastName}"></td>
+                <td th:text="${student.EnrollmentDate}"></td>
+                <td th:text="${student.cpr}"></td>
+                <td>
+                    <a th:href="'/unenroll/' + ${course.id} + '/' + ${student.id} + '/' + ${course.id}" class="btn btn-details">Unenroll</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="'/courses/enroll?id=' + ${course.id}" class="btn btn-create">Enroll students</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:td="http://www.w3.org/1999/xhtml">
+<head>
+    <title th:text="'Details: ' + ${student.name} + ' ' + ${student.lastName}"></title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="/" id="logo">KEA</a>
+        <a href="/">Students </a>
+        <a href="/courses">Courses</a>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 th:text="'Details: ' + ${student.name} + ' ' + ${student.lastName}"></h1>
+
+    <p th:text="'Id: ' + ${student.id}"></p>
+    <p th:text="'First Name: ' + ${student.name}"></p>
+    <p th:text="'Last Name: ' + ${student.lastName}"></p>
+    <p th:text="'Enrollment Date: ' + ${student.enrollmentDate}"></p>
+    <p th:text="'CPR: ' + ${student.cpr}"></p>
+
+    <h2 th:text="'Enrollments for ' + ${student.name} + ' ' + ${student.lastName}"></h2>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Start date</th>
+            <th>ECTS</th>
+            <th></th>
+        </thead>
+        <tbody th:each="courses: ${courses}">
+            <td th:text="${courses.id}"></td>
+            <td th:text="${courses.title}"></td>
+            <td th:text="${courses.startDate}"></td>
+            <td th:text="${courses.etcs}"></td>
+            <td><a th:href="'/unenroll/' + ${courses.id} + '/' + ${student.id}" class="btn btn-details">Unenroll</a></td>
+        </tbody>
+    </table>
+    <a th:href="'/enroll?id=' + ${student.id}" class="btn btn-details">Enroll in courses</a>
+</div>
+</body>
+</html>
